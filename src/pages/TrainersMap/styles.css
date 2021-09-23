@@ -1,0 +1,66 @@
+#page-map {
+	display: flex;
+	height: 100vh;
+	position: relative;
+	width: 100vw;
+}
+
+#page-map aside {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 80px;
+	width: 500px;
+	animation: enter-page 1s;
+}
+
+#page-map aside img {
+	width: 250px;
+}
+
+#page-map aside header {
+	margin-bottom: 320px;
+}
+
+#page-map aside h2 {
+	font-size: 42px;
+	font-weight: 600;
+	line-height: 50px;
+}
+
+#page-map aside p {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 30px;
+	margin-top: 48px;
+}
+
+#page-map .leaflet-container {
+	z-index: 1;
+}
+
+#page-map .create-trainer {
+	animation: enter-page 1s;
+	align-items: center;
+	background-color: #f07900;
+	border-radius: 16px;
+	bottom: 56px;
+	display: flex;
+	height: 80px;
+	justify-content: center;
+	position: absolute;
+	right: 56px;
+	transition: background-color 0.3s ease-in-out;
+	width: 80px;
+	z-index: 10;
+}
+
+#page-map .create-trainer:hover {
+	background-color: #f07900cc;
+}
+
+#page-map .create-trainer:hover > svg > line,
+#page-map .create-trainer:hover > svg > polyline {
+	transition: color 0.3s ease-in-out;
+	color: #552a00;
+}
