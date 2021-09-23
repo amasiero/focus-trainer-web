@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import logo from '../../assets/img/logo.svg';
 import Leaflet from 'leaflet';
 
+import logo from '../../assets/img/logo.svg';
 import 'leaflet/dist/leaflet.css';
 import './styles.css';
-
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-const mapIcon = Leaflet.icon({
+const markerIcon = Leaflet.icon({
 	iconUrl: icon,
 	shadowUrl: iconShadow,
-	iconAnchor: [12, 45],
+	iconAnchor: [12.5, 45],
 	popupAnchor: [0, -45],
 });
 
 const TrainersMap = () => {
 	const position = [-23.51298, -46.7321];
+
 	return (
 		<div id='page-map'>
 			<aside>
@@ -28,17 +28,14 @@ const TrainersMap = () => {
 					<p>O treinador está te esperando :&#41;</p>
 				</header>
 			</aside>
-
-			<MapContainer
-				center={position}
-				zoom={17}
-				scrollWheelZoom={false}
-				style={{ width: '100%', height: '100%' }}
-			>
-				<TileLayer url='https://a.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-				<Marker position={position} icon={mapIcon}>
-					<Popup closeButton={false} minWidth={240} maxWidth={240}>
-						Escola Germinare.
+			<MapContainer center={position} zoom={17} scrollWheelZoom={false}>
+				{/* <TileLayer url='https://a.tile.openstreetmap.org/{z}/{x}/{y}.png' /> */}
+				<TileLayer
+					url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+				/>
+				<Marker position={position} icon={markerIcon}>
+					<Popup closeButton={false} minWidth={200} maxWidth={200}>
+						Escola Germinare
 					</Popup>
 				</Marker>
 			</MapContainer>

@@ -19,7 +19,7 @@
 }
 
 #page-map aside header {
-	margin-bottom: 320px;
+	margin-bottom: 170px;
 }
 
 #page-map aside h2 {
@@ -37,6 +37,8 @@
 
 #page-map .leaflet-container {
 	z-index: 1;
+	width: 100%;
+	height: 100%;
 }
 
 #page-map .create-trainer {
